@@ -203,6 +203,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSanPhamAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaSanXuatAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanPhamAdminController.cs" />
     <Compile Include="Content\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -228,6 +233,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\AssetAdmin\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\AssetAdmin\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\AssetAdmin\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\AssetAdmin\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\AssetAdmin\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\AssetAdmin\css\local.css" />
+    <Content Include="Areas\AssetAdmin\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\AssetAdmin\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\AssetAdmin\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\AssetAdmin\js\jquery-1.10.2.min.js" />
     <Content Include="Asset\css\bootstrap.min.css" />
     <Content Include="Asset\css\style.css" />
     <Content Include="Asset\font-awesome\css\font-awesome.css" />
@@ -329,6 +344,47 @@
     <Content Include="Asset\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_MainLayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\MainAdmin\Index.cshtml" />
+    <Content Include="Areas\AssetAdmin\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\AssetAdmin\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\AssetAdmin\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\AssetAdmin\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\AssetAdmin\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\AssetAdmin\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\AssetAdmin\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\AssetAdmin\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\AssetAdmin\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\core.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\icons.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\larger.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\list.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\mixins.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\path.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\spinning.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\stacked.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\less\variables.less" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_spinning.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\AssetAdmin\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\SanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -389,6 +445,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
