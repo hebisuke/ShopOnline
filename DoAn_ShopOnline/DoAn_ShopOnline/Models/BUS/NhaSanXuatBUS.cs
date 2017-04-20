@@ -18,5 +18,10 @@ namespace DoAn_ShopOnline.Models.BUS
             var db = new ShopOnlineConnectionDB();
             return db.Query<SanPham>("select * from SanPham where MaNHaSanXuat = '"+id+ "'");
         }
+        public static void ThemNSX(NhaSanXuat nsx)
+        {
+            var db =  new ShopOnlineConnectionDB();
+            db.Insert(nsx);
+        }
     }
 }

@@ -262,8 +262,12 @@
     <Content Include="Asset\images\7.png" />
     <Content Include="Asset\images\8.png" />
     <Content Include="Asset\images\9.png" />
+    <Content Include="Asset\images\AddNSX.png" />
+    <Content Include="Asset\images\addproduct.png" />
     <Content Include="Asset\images\close.png" />
+    <Content Include="Asset\images\delete.png" />
     <Content Include="Asset\images\discover-curved-32px.png" />
+    <Content Include="Asset\images\Edit.png" />
     <Content Include="Asset\images\galaxy-note-1.jpg" />
     <Content Include="Asset\images\galaxy-note-2.jpg" />
     <Content Include="Asset\images\galaxy-note-3.jpg" />
@@ -385,6 +389,8 @@
     <Content Include="Areas\Admin\Views\SanPhamAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAn_ShopOnline.Models.BUS;
+using ShopOnlineConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,8 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
         // GET: Admin/NhaSanXuatAdmin
         public ActionResult Index()
         {
-            return View();
+            var ds = NhaSanXuatBUS.DanhSach();
+            return View(ds);
         }
 
         // GET: Admin/NhaSanXuatAdmin/Details/5
@@ -28,12 +31,12 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
 
         // POST: Admin/NhaSanXuatAdmin/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create( NhaSanXuat nsx)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                NhaSanXuatBUS.ThemNSX(nsx);
                 return RedirectToAction("Index");
             }
             catch
