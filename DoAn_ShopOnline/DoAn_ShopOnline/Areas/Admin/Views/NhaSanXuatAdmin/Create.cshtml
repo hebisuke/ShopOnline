@@ -4,7 +4,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Create</h2>
 
 <style>
     input[type=text] {
@@ -43,17 +43,8 @@
 
         <label for="country">Tình Trạng</label>
         <select id="country" style="width:20%;background-color:#5d5e63;" name="TinhTrang" required >
-            @if (Model.TinhTrang == "1")
-            {
-                <option value="0">Chưa Khóa</option>
-                <option value="1" selected>Đã Khóa</option>
-            }
-            else
-            {
                 <option value="0" selected>Chưa Khóa</option>
-                <option value="1">Đã Khóa</option>
-            }
-
+                <option value="1" >Đã Khóa</option>
         </select>
 
         <input type="submit" value="Xác nhận chỉnh sửa">

@@ -393,6 +393,8 @@
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\XoaTamThoi.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\XoaTamThoi.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
