@@ -1,11 +1,10 @@
-﻿
+﻿@model ShopOnlineConnection.NhaSanXuat
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "XoaTamThoi";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
 
-<h2>Delete</h2>
-
+<h2>XoaTamThoi</h2>
 <style>
     input[type=text] {
         width: 100%;
@@ -33,29 +32,29 @@
         }
 </style>
 <div style="margin:auto;">
-    @using (Html.BeginForm("Create", "NhaSanXuatAdmin", FormMethod.Post, new { @style = "width : 50%; margin: auto;" }))
+    @using (Html.BeginForm("XoaTamThoi", "NhaSanXuatAdmin", FormMethod.Post, new { @style = "width : 50%; margin: auto;" }))
     {
         <label for="fname">Mã Nhà Sản Xuất</label>
         <input type="text" id="fname" name="MaNhaSanXuat" style="background-color:#5d5e63;" placeholder="Mã Nhà Sản Xuất.." required value="@Model.MaNhaSanXuat" readonly>
 
         <label for="lname">Tên Nhà Sản Xuất</label>
-        <input type="text" id="lname" name="TenNhaSanXuat" style="background-color:#5d5e63;" placeholder="Tên Nhà Sản Xuất.." required value="@Model.TenNhaSanXuat">
+        <input type="text" id="lname" name="TenNhaSanXuat" style="background-color:#5d5e63;" placeholder="Tên Nhà Sản Xuất.." required value="@Model.TenNhaSanXuat"  readonly>
 
         <label for="country">Tình Trạng</label>
-        <select id="country" style="width:20%;background-color:#5d5e63;" name="TinhTrang" required >
+        <select id="country" style="width:20%;background-color:#5d5e63;" name="TinhTrang" required>
             @if (Model.TinhTrang == "1")
             {
-                <option value="0">Chưa Khóa</option>
                 <option value="1" selected>Đã Khóa</option>
             }
             else
             {
                 <option value="0" selected>Chưa Khóa</option>
-                <option value="1">Đã Khóa</option>
             }
-
         </select>
 
-        <input type="submit" value="Xác nhận chỉnh sửa">
+        <input type="submit" value="Xác nhận xóa">
     }
+
+
 </div>
+
