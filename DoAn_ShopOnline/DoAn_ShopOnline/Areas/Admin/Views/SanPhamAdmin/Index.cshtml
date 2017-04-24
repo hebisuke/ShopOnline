@@ -1,8 +1,55 @@
-﻿
+﻿@model IEnumerable<ShopOnlineConnection.SanPham>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
 }
 
-<h2>Index của trang sản phảm</h2>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: auto;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #5d5e63;
+    }
+
+    th {
+        background-color: #2a9fd6;
+        color: white;
+    }
+</style>
+<h2>Quản Lý Nhà Sản Xuất</h2>
+
+<table>
+    <tr>
+        <th>Mã Nhà Sản Xuất</th>
+        <th>Tên Nhà Sản Xuất</th>
+        <th>Hình Ảnh</th>
+        <th>Tình Trạng</th>
+        <th colspan="2">
+            <a href="@Url.Action("Create","SanPhamAdmin")"><img src="~/Asset/images/AddNSX.png" /></a>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSanPham</td>
+            <td>@item.TenSanPham</td>
+            <td>@item.TinhTrang</td>
+            <td><img  src="~/Asset/img/@item.HinhChinh" style="width:50px;height:70px;" /></td>
+            <td><a href="@Url.Action("Edit","SanPhamAdmin",new { id = @item.MaSanPham})"> <img src="~/Asset/images/edit.png" /></a> </td>
+            <td><a href="@Url.Action("Delete","SanPhamAdmin",new { id = @item.MaSanPham})"> <img src="~/Asset/images/Delete.png" /></a> </td>
+        </tr>
+    }
+
+</table>
+
+
 

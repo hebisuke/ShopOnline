@@ -12,13 +12,13 @@ namespace DoAn_ShopOnline.Models.BUS
         public static IEnumerable<NhaSanXuat> DanhSach()
         {
             var db = new ShopOnlineConnectionDB();
-            return db.Query<NhaSanXuat>("select * from NhaSanXuat where TinhTrang = 0");
+            return db.Query<NhaSanXuat>("select * from NhaSanXuat where TinhTrang = '0         '");
         }
        
         public static IEnumerable<SanPham> ChiTiet(String id)
         {
             var db = new ShopOnlineConnectionDB();
-            return db.Query<SanPham>("select * from SanPham where MaNHaSanXuat = '"+id+ "'");
+            return db.Query<SanPham>("select * from SanPham where MaNHaSanXuat = '"+id+ "' AND TinhTrang = '0         '");
         }
 
         //---------------- Admin

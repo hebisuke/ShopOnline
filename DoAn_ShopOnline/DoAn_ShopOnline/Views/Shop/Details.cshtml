@@ -20,20 +20,20 @@
                 <div class="product">
                     <div class="col-md-6">
                         <div class="image">
-                            <img src="~/Asset/images/@Model.HinhChinh" />
+                            <img src="~/Asset/img/@Model.HinhChinh" />
                             <div class="image-more">
                                 <ul class="row">
                                     <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/images/@Model.HinhChinh"></a>
+                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh1" style="width:65px;height:65px;"></a>
                                     </li>
                                     <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/images/@Model.HinhChinh"></a>
+                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh2" style="width:65px;height:65px;"></a>
                                     </li>
                                     <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/images/@Model.HinhChinh"></a>
+                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh3" style="width:65px;height:65px;"></a>
                                     </li>
                                     <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/images/@Model.HinhChinh"></a>
+                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh4" style="width:65px;height:65px;"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -44,22 +44,24 @@
                             <div class="name"><h3>@Model.TenSanPham</h3></div>
                             <div class="info">
                                 <ul>
-                                    <li>Brand: text</li>
-                                    <li>@Model.MaNhaSanXuat</li>
+                                    @*<li>Brand: text</li>*@
+                                    @*<li>@Model.MaNhaSanXuat</li>*@
                                 </ul>
                             </div>
-                            <div class="price">@Model.Gia VNĐ</div>
-                            <div class="options">
+                            
+                            <div class="price"> @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", Model.Gia)</div>
+                            @Html.Raw(HttpUtility.HtmlDecode(Model.CauHinh))
+                            @*<div class="options">
                                 AVAILABLE OPTIONS
                                 <select>
                                     <option value="" selected>----Please Select----</option>
                                     <option value="red">RED</option>
                                     <option value="black">BLACK</option>
                                 </select>
-                            </div>
+                            </div>*@
                             <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            <div class="well"><label>Qty: </label> <input class="form-inline quantity" type="text" value="1"><a href="#" class="btn btn-2 ">ADD</a></div>
-                            <div class="share well">
+                            @*<div class="well"><label>Qty: </label> <input class="form-inline quantity" type="text" value="1"><a href="#" class="btn btn-2 ">ADD</a></div>*@
+                            @*<div class="share well">
                                 <strong style="margin-right: 13px;">Share :</strong>
                                 <a href="#" class="share-btn" target="_blank">
                                     <i class="fa fa-twitter"></i>
@@ -70,7 +72,7 @@
                                 <a href="#" class="share-btn" target="_blank">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -82,10 +84,7 @@
                     </ul>
                     <div class="tab-content">
                         <div id="description" class="tab-pane fade in active">
-                            <h4>Sample Lorem Ipsum Text</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem. Curabitur sit amet erat quis risus feugiat viverra. Pellentesque augue justo, sagittis et, lacinia at, venenatis non, arcu. Nunc nec libero. In cursus dictum risus. Etiam tristique nisl a</p>
-                            <h4>Sample Lorem Ipsum Text</h4>
-                            <p>Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque aliquet lacus vitae pede. Nullam mollis dolor ac nisi. Phasellus sit amet urna. Praesent pellentesque sapien sed lacus. Donec lacinia odio in odio. In sit amet elit. Maecenas gravida interdum urna. Integer pretium, arcu vitae imperdiet facilisis, elit tellus tempor nisi, vel feugiat ante velit sit amet mauris. Vivamus arcu. Integer pharetra magna ac lacus. Aliquam vitae sapien in nibh vehicula auctor. Suspendisse leo mauris, pulvinar sed, tempor et, consequat ac, lacus. Proin velit. Nulla semper lobortis mauris. Duis urna erat, ornare et, imperdiet eu, suscipit sit amet, massa. Nulla nulla nisi, pellentesque at, egestas quis, fringilla eu, diam.</p>
+                         @Html.Raw(HttpUtility.HtmlDecode(Model.CauHinh))
                         </div>
                         <div id="review" class="tab-pane fade">
                             <div class="review-text">
@@ -111,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-related">
+                @*<div class="product-related">
                     <div class="heading"><h2>RELATED PRODUCTS</h2></div>
                     <div class="products">
                         <div class="col-lg-4 col-md-4 col-xs-12">
@@ -161,7 +160,7 @@
                         </div>
                     </div>
                     <div class="clear"></div>
-                </div>
+                </div>*@
             </div>
             <div id="sidebar" class="col-md-4">
                 <div class="widget wid-categories">
@@ -209,7 +208,7 @@
                         <label class="checkbox"><input type="checkbox" name="brand">Zumba</label>
                     </div>
                 </div>
-                <div class="widget wid-product">
+                @*<div class="widget wid-product">
                     <div class="heading"><h4>LATEST</h4></div>
                     <div class="content">
                         <div class="product">
@@ -237,7 +236,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
     </div>
