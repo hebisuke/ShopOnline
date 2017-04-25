@@ -136,11 +136,7 @@ namespace ShopOnlineConnection
 		[Column] public string MaNhaSanXuat { get; set; }
 		[Column] public string TenSanPham { get; set; }
 		[Column] public string CauHinh { get; set; }
-		[Column] public string HinhChinh { get; set; }
-		[Column] public string Hinh1 { get; set; }
-		[Column] public string Hinh2 { get; set; }
-		[Column] public string Hinh3 { get; set; }
-		[Column] public string Hinh4 { get; set; }
+		[Column] public string MoreImages { get; set; }
 		[Column] public int? Gia { get; set; }
 		[Column] public int? SoLuongDaBan { get; set; }
 		[Column] public int? LuotView { get; set; }

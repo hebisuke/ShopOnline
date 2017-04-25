@@ -19,6 +19,7 @@
     <script type="text/javascript" src="~/Areas/AssetAdmin/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="~/Areas/AssetAdmin/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Areas/AssetAdmin/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/AssetAdmin/ckfinder/ckfinder.js"></script>
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
     <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
     <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
@@ -100,7 +101,7 @@
        @RenderBody()
     </div>
     <!-- /#wrapper -->
-
+   
     <script type="text/javascript">
         jQuery(function ($) {
             var performance = [12, 43, 34, 22, 12, 33, 4, 17, 22, 34, 54, 67],
@@ -174,6 +175,7 @@
             });
         });
     </script>
+    <script src="~/Areas/AssetAdmin/js/product/productController.js"></script>
 </body>
 </html>
 

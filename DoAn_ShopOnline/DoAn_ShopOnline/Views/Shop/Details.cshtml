@@ -20,147 +20,30 @@
                 <div class="product">
                     <div class="col-md-6">
                         <div class="image">
-                            <img src="~/Asset/img/@Model.HinhChinh" />
+                            @Html.Partial("_AvartaDetails", DoAn_ShopOnline.Models.BUS.ShopOnlineBUS.LoadAvartaImg(Model.MaSanPham))
                             <div class="image-more">
-                                <ul class="row">
-                                    <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh1" style="width:65px;height:65px;"></a>
-                                    </li>
-                                    <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh2" style="width:65px;height:65px;"></a>
-                                    </li>
-                                    <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh3" style="width:65px;height:65px;"></a>
-                                    </li>
-                                    <li class="col-lg-3 col-sm-3 col-xs-4">
-                                        <a href="#"><img class="img-responsive" src="~/Asset/img/@Model.Hinh4" style="width:65px;height:65px;"></a>
-                                    </li>
-                                </ul>
+
+                                
+                                <a href="#" data-id="@Model.MaSanPham" class="btn_images"><img src="~/Asset/images/ThemHinh.png" style="background:white;" /> Xem chi tiết sản phẩm</a>
+                            
+                            
+                            
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="caption">
                             <div class="name"><h3>@Model.TenSanPham</h3></div>
-                            <div class="info">
-                                <ul>
-                                    @*<li>Brand: text</li>*@
-                                    @*<li>@Model.MaNhaSanXuat</li>*@
-                                </ul>
-                            </div>
+                           
                             
                             <div class="price"> @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", Model.Gia)</div>
                             @Html.Raw(HttpUtility.HtmlDecode(Model.CauHinh))
-                            @*<div class="options">
-                                AVAILABLE OPTIONS
-                                <select>
-                                    <option value="" selected>----Please Select----</option>
-                                    <option value="red">RED</option>
-                                    <option value="black">BLACK</option>
-                                </select>
-                            </div>*@
+                           
                             <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            @*<div class="well"><label>Qty: </label> <input class="form-inline quantity" type="text" value="1"><a href="#" class="btn btn-2 ">ADD</a></div>*@
-                            @*<div class="share well">
-                                <strong style="margin-right: 13px;">Share :</strong>
-                                <a href="#" class="share-btn" target="_blank">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a href="#" class="share-btn" target="_blank">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="#" class="share-btn" target="_blank">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </div>*@
                         </div>
                     </div>
                     <div class="clear"></div>
                 </div>
-                <div class="product-desc">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#description">Description</a></li>
-                        <li><a href="#review">Review</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="description" class="tab-pane fade in active">
-                         @Html.Raw(HttpUtility.HtmlDecode(Model.CauHinh))
-                        </div>
-                        <div id="review" class="tab-pane fade">
-                            <div class="review-text">
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                            <div class="review-form">
-                                <h4>Write a review</h4>
-                                <form name="form1" id="ff" method="post" action="review.php">
-                                    <label>
-                                        <span>Enter your name:</span>
-                                        <input type="text" name="name" id="name" required>
-                                    </label>
-                                    <label>
-                                        <span>Your message here:</span>
-                                        <textarea name="message" id="message"></textarea>
-                                    </label>
-                                    <div class="text-right">
-                                        <input class="btn btn-default" type="reset" name="reset" value="Reset">
-                                        <input class="btn btn-default" type="submit" name="Submit" value="Submit">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @*<div class="product-related">
-                    <div class="heading"><h2>RELATED PRODUCTS</h2></div>
-                    <div class="products">
-                        <div class="col-lg-4 col-md-4 col-xs-12">
-                            <div class="product">
-                                <div class="image"><a href="product.html"><img src="~/Asset/images/iphone.png" /></a></div>
-                                <div class="buttons">
-                                    <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                    <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-                                    <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
-                                </div>
-                                <div class="caption">
-                                    <div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
-                                    <div class="price">$122<span>$98</span></div>
-                                    <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-xs-12">
-                            <div class="product">
-                                <div class="image"><a href="product.html"><img src="~/Asset/images/galaxy-s4.jpg" /></a></div>
-                                <div class="buttons">
-                                    <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                    <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-                                    <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
-                                </div>
-                                <div class="caption">
-                                    <div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
-                                    <div class="price">$122<span>$98</span></div>
-                                    <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-xs-12">
-                            <div class="product">
-                                <div class="image"><a href="product.html"><img src="~/Asset/images/galaxy-note.jpg" /></a></div>
-                                <div class="buttons">
-                                    <a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                                    <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
-                                    <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
-                                </div>
-                                <div class="caption">
-                                    <div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></div>
-                                    <div class="price">$122<span>$98</span></div>
-                                    <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>*@
             </div>
             <div id="sidebar" class="col-md-4">
                 <div class="widget wid-categories">
@@ -208,37 +91,32 @@
                         <label class="checkbox"><input type="checkbox" name="brand">Zumba</label>
                     </div>
                 </div>
-                @*<div class="widget wid-product">
-                    <div class="heading"><h4>LATEST</h4></div>
-                    <div class="content">
-                        <div class="product">
-                            <a href="#"><img src="~/Asset/images/galaxy-note.jpg" /></a>
-                            <div class="wrapper">
-                                <h5><a href="#">Samsung Galaxy Tab</a></h5>
-                                <div class="price">$122</div>
-                                <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <a href="#"><img src="~/Asset/images/galaxy-s4.jpg" /></a>
-                            <div class="wrapper">
-                                <h5><a href="#">Samsung Galaxy Tab</a></h5>
-                                <div class="price">$122</div>
-                                <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <a href="#"><img src="~/Asset/images/Z1.png" /></a>
-                            <div class="wrapper">
-                                <h5><a href="#">Samsung Galaxy Tab</a></h5>
-                                <div class="price">$122</div>
-                                <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
             </div>
         </div>
     </div>
 </div>	
 
+<!-- Modal -->
+<div class="modal fade" id="imagesManange" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Chi tiết</h4>
+            </div>
+            <div class="modal-body">
+                <div id="_imageList">
+
+                </div>
+                <div class="clear"></div>
+                <input type="hidden" id="_hidProductID" value="0" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

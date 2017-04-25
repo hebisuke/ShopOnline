@@ -1,4 +1,5 @@
 ﻿using DoAn_ShopOnline.Models.BUS;
+using PagedList;
 using ShopOnlineConnection;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
     public class NhaSanXuatAdminController : Controller
     {
         // GET: Admin/NhaSanXuatAdmin
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pagesize = 5)
         {
-            var ds = NhaSanXuatBUS.DanhSachAdmin();
+            var ds = NhaSanXuatBUS.DanhSachAdmin().ToPagedList(page, pagesize);
             return View(ds);
         }
 

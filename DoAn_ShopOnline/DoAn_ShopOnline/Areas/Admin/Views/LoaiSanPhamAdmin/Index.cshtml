@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ShopOnlineConnection.LoaiSanPham>
+﻿@model PagedList.PagedList<ShopOnlineConnection.LoaiSanPham>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
@@ -26,11 +27,11 @@
     }
 </style>
 <h2>Quản Lý Loại Sản Phẩm</h2>
-
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 <table>
     <tr>
-        <th>Mã Nhà Sản Xuất</th>
-        <th>Tên Nhà Sản Xuất</th>
+        <th>Mã Loại Sản Phẩm</th>
+        <th>Tên Loại Sản Phẩm</th>
         <th>Tình Trạng</th>
         <th colspan="2">
             <a href="@Url.Action("Create","LoaiSanPhamAdmin")"><img src="~/Asset/images/AddNSX.png" /></a>

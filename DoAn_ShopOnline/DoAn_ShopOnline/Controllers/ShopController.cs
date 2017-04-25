@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace DoAn_ShopOnline.Controllers
 {
@@ -23,7 +24,22 @@ namespace DoAn_ShopOnline.Controllers
             var db = ShopOnlineBUS.ChiTiet(id);
             return View(db);
         }
+        public JsonResult LoadImages(string id)
+        {
+            var product = ShopOnlineBUS.ChiTiet(id);
+            var images = product.MoreImages;
+            XElement xImages = XElement.Parse(images);
+            List<string> listImageReturn = new List<string>();
 
+            foreach (XElement element in xImages.Elements())
+            {
+                listImageReturn.Add(element.Value);
+            }
+            return Json(new
+            {
+                data = listImageReturn
+            }, JsonRequestBehavior.AllowGet);
+        }
         // GET: Shop/Create
         public ActionResult Create()
         {

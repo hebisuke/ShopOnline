@@ -1,20 +1,23 @@
 ﻿using DoAn_ShopOnline.Models.BUS;
+using PagedList;
 using ShopOnlineConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Xml.Linq;
 
 namespace DoAn_ShopOnline.Areas.Admin.Controllers
 {
     public class SanPhamAdminController : Controller
     {
         // GET: Admin/SanPhamAdmin
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pagesize = 5)
         {
             
-            return View(ShopOnlineBUS.DanhSachSP());
+            return View(ShopOnlineBUS.DanhSachSP().ToPagedList(page, pagesize));
         }
 
         // GET: Admin/SanPhamAdmin/Details/5
@@ -22,7 +25,56 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
         {
             return View();
         }
+        public JsonResult LoadImages(string id)
+        {
+            var product = ShopOnlineBUS.ChiTiet(id);
+            var images = product.MoreImages;
+            XElement xImages = XElement.Parse(images);
+            List<string> listImageReturn = new List<string>();
 
+            foreach (XElement element in xImages.Elements())
+            {
+                listImageReturn.Add(element.Value);
+            }
+            return Json(new
+            {
+                data = listImageReturn
+            }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult SaveImages(string id, string images)
+        {
+            JavaScriptSerializer serizlizer = new JavaScriptSerializer();
+            var listImages = serizlizer.Deserialize<List<string>>(images);
+
+            XElement xElement = new XElement("Images");
+
+            foreach (var item in listImages)
+            {
+                var subStringItem = item.Substring(22);
+                xElement.Add(new XElement("Images", subStringItem));
+            }
+            if(listImages.Count()==0)
+            {
+                
+                xElement.Add(new XElement("Images", "/Asset/data/images/default.png"));
+            }
+            try
+            {
+                ShopOnlineBUS.UpdateImages(id, xElement.ToString());
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+
+        }
         // GET: Admin/SanPhamAdmin/Create
         public ActionResult Create()
         {
@@ -38,56 +90,13 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
         {
             try
             {
-                var hpf = HttpContext.Request.Files[0];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + ".png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.HinhChinh = sp.MaSanPham + ".png";
-                }
-
-                 hpf = HttpContext.Request.Files[1];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_1.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh1 = sp.MaSanPham + "_1.png";
-                }
-                 hpf = HttpContext.Request.Files[2];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_2.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh2 = sp.MaSanPham + "_2.png";
-                }
-                 hpf = HttpContext.Request.Files[3];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_3.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh3 = sp.MaSanPham + "_3.png";
-                }
-                 hpf = HttpContext.Request.Files[4];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_4.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh4 = sp.MaSanPham + "_4.png";
-                }
-
                 sp.TinhTrang = "0";
                 sp.SoLuongDaBan = 0;
                 sp.LuotView = 0;
+                sp.TinhTrang = "1";
+                XElement xElement = new XElement("Images");
+                xElement.Add(new XElement("Images", "/Asset/data/images/default.png"));
+                sp.MoreImages = xElement.ToString();
                 // TODO: Add insert logic here
                 ShopOnlineBUS.InsertSP(sp);
                 return RedirectToAction("Index");
@@ -115,62 +124,7 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
             try
             {
                 // TODO: Add update logic here
-                var hpf = HttpContext.Request.Files[0];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + ".png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.HinhChinh = sp.MaSanPham + ".png";
-                }else { sp.HinhChinh = tam.HinhChinh; }
-            
-
-                hpf = HttpContext.Request.Files[1];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_1.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh1 = sp.MaSanPham + "_1.png";
-                }
-                else { sp.Hinh1 = tam.Hinh1; }
-
-
-                hpf = HttpContext.Request.Files[2];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_2.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh2 = sp.MaSanPham + "_2.png";
-                }else
-                { sp.Hinh2 = tam.Hinh2; }
-
-                hpf = HttpContext.Request.Files[3];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_3.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh3 = sp.MaSanPham + "_3.png";
-                }
-                else { sp.Hinh3 = tam.Hinh3; }
-
-
-                hpf = HttpContext.Request.Files[4];
-                if (hpf.ContentLength > 0)
-                {
-                    string fileName = sp.MaSanPham;
-
-                    string fullPathWithFileName = "~/Asset/img/" + fileName + "_4.png";
-                    hpf.SaveAs(Server.MapPath(fullPathWithFileName));
-                    sp.Hinh4 = sp.MaSanPham + "_4.png";
-                }
-                else { sp.Hinh4 = tam.Hinh4; }
+                sp.MoreImages = tam.MoreImages;
                 if (sp.SoLuongDaBan>10000)
                 {
                     sp.SoLuongDaBan = 0;
