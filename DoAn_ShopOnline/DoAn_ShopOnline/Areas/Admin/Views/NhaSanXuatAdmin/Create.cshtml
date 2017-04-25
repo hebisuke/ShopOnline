@@ -33,20 +33,20 @@
         }
 </style>
 <div style="margin:auto;">
-    @using (Html.BeginForm("Create", "NhaSanXuatAdmin", FormMethod.Post, new { @style = "width : 50%; margin: auto;" }))
-    {
-        <label for="fname">Mã Nhà Sản Xuất</label>
-        <input type="text" id="fname" name="MaNhaSanXuat" style="background-color:#5d5e63;" placeholder="Mã Nhà Sản Xuất.." required value="@Model.MaNhaSanXuat" readonly>
+   @using (Html.BeginForm("Create", "NhaSanXuatAdmin", FormMethod.Post, new { @style = "width : 50%; margin: auto;" }))
+   {
+    <label for="fname">Mã Nhà Sản Xuất</label>
+    <input type="text" id="fname" name="MaNhaSanXuat" style="background-color:#5d5e63;" placeholder="Mã Nhà Sản Xuất.." required />
 
-        <label for="lname">Tên Nhà Sản Xuất</label>
-        <input type="text" id="lname" name="TenNhaSanXuat" style="background-color:#5d5e63;" placeholder="Tên Nhà Sản Xuất.." required value="@Model.TenNhaSanXuat">
+    <label for="lname">Tên Nhà Sản Xuất</label>
+    <input type="text" id="lname" name="TenNhaSanXuat" style="background-color:#5d5e63;" placeholder="Tên Nhà Sản Xuất.." required />
 
-        <label for="country">Tình Trạng</label>
-        <select id="country" style="width:20%;background-color:#5d5e63;" name="TinhTrang" required >
-                <option value="0" selected>Chưa Khóa</option>
-                <option value="1" >Đã Khóa</option>
-        </select>
+    <label for="country">Tình Trạng</label>
+    <select id="country" style="width:20%;background-color:#5d5e63;" name="TinhTrang" required>
+        <option value="0" selected>Chưa Khóa</option>
+        <option value="1">Đã Khóa</option>
+    </select>
 
-        <input type="submit" value="Xác nhận chỉnh sửa">
+    <input type="submit" value="Xác nhận chỉnh sửa">
     }
 </div>

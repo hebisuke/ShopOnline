@@ -1375,7 +1375,6 @@
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\XoaTamThoi.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiSanPhamAdmin\Edit.cshtml" />
@@ -1403,6 +1402,7 @@
     <Content Include="Areas\AssetAdmin\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Areas\AssetAdmin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\Shared\_AvartaImg.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
