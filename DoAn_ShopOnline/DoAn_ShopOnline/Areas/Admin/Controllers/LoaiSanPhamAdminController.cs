@@ -11,6 +11,7 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
 {
     public class LoaiSanPhamAdminController : Controller
     {
+        [Authorize(Roles ="Admin")]
         // GET: Admin/LoaiSanPhamAdmin
         public ActionResult Index(int page = 1, int pagesize =5)
         {
