@@ -67,7 +67,12 @@
 
 
                     <span><br /><br /><br /><br /></span>
-                   @Html.Partial("_BinhLuan",DoAn_ShopOnline.Models.BUS.BinhLuanBUS.LoadBinhLuan())
+                    @{ 
+                        int page = ViewBag.page;
+                        int pagesize = ViewBag.pagesize;
+                    }
+                   @Html.Partial("_BinhLuan",DoAn_ShopOnline.Models.BUS.BinhLuanBUS.LoadBinhLuan(page,pagesize))
+                   
                 </div>
             </div>
             <div id="sidebar" class="col-md-4">

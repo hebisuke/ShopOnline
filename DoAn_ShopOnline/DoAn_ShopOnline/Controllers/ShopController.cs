@@ -19,9 +19,11 @@ namespace DoAn_ShopOnline.Controllers
         }
 
         // GET: Shop/Details/5
-        public ActionResult Details(String id)
+        public ActionResult Details(String id,int page =1, int pagesize =3)
         {
             var db = ShopOnlineBUS.ChiTiet(id);
+            ViewBag.page = page;
+            ViewBag.pagesize = pagesize;
             return View(db);
         }
         public JsonResult LoadImages(string id)
