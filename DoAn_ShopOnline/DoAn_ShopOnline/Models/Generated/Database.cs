@@ -106,6 +106,101 @@ namespace ShopOnlineConnection
 	
 
     
+	[TableName("dbo.__MigrationHistory")]
+	[PrimaryKey("MigrationId", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class __MigrationHistory : ShopOnlineConnectionDB.Record<__MigrationHistory>  
+    {
+		[Column] public string MigrationId { get; set; }
+		[Column] public string ContextKey { get; set; }
+		[Column] public byte[] Model { get; set; }
+		[Column] public string ProductVersion { get; set; }
+	}
+    
+	[TableName("dbo.AspNetRoles")]
+	[PrimaryKey("Id", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetRole : ShopOnlineConnectionDB.Record<AspNetRole>  
+    {
+		[Column] public string Id { get; set; }
+		[Column] public string Name { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUserClaims")]
+	[PrimaryKey("Id")]
+	[ExplicitColumns]
+    public partial class AspNetUserClaim : ShopOnlineConnectionDB.Record<AspNetUserClaim>  
+    {
+		[Column] public int Id { get; set; }
+		[Column] public string UserId { get; set; }
+		[Column] public string ClaimType { get; set; }
+		[Column] public string ClaimValue { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUserLogins")]
+	[PrimaryKey("LoginProvider", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetUserLogin : ShopOnlineConnectionDB.Record<AspNetUserLogin>  
+    {
+		[Column] public string LoginProvider { get; set; }
+		[Column] public string ProviderKey { get; set; }
+		[Column] public string UserId { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUserRoles")]
+	[PrimaryKey("UserId", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetUserRole : ShopOnlineConnectionDB.Record<AspNetUserRole>  
+    {
+		[Column] public string UserId { get; set; }
+		[Column] public string RoleId { get; set; }
+	}
+    
+	[TableName("dbo.AspNetUsers")]
+	[PrimaryKey("Id", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class AspNetUser : ShopOnlineConnectionDB.Record<AspNetUser>  
+    {
+		[Column] public string Id { get; set; }
+		[Column] public string Email { get; set; }
+		[Column] public bool EmailConfirmed { get; set; }
+		[Column] public string PasswordHash { get; set; }
+		[Column] public string SecurityStamp { get; set; }
+		[Column] public string PhoneNumber { get; set; }
+		[Column] public bool PhoneNumberConfirmed { get; set; }
+		[Column] public bool TwoFactorEnabled { get; set; }
+		[Column] public DateTime? LockoutEndDateUtc { get; set; }
+		[Column] public bool LockoutEnabled { get; set; }
+		[Column] public int AccessFailedCount { get; set; }
+		[Column] public string UserName { get; set; }
+	}
+    
+	[TableName("dbo.BinhLuan")]
+	[PrimaryKey("MaBinhLuan")]
+	[ExplicitColumns]
+    public partial class BinhLuan : ShopOnlineConnectionDB.Record<BinhLuan>  
+    {
+		[Column] public int MaBinhLuan { get; set; }
+		[Column] public string MaSanPham { get; set; }
+		[Column] public string MaTaiKhoan { get; set; }
+		[Column] public string TenTaiKhoan { get; set; }
+		[Column] public string NoiDung { get; set; }
+		[Column] public int? TinhTrang { get; set; }
+		[Column] public DateTime? Ngay { get; set; }
+	}
+    
+	[TableName("dbo.GioHang")]
+	[PrimaryKey("IdGH")]
+	[ExplicitColumns]
+    public partial class GioHang : ShopOnlineConnectionDB.Record<GioHang>  
+    {
+		[Column] public int IdGH { get; set; }
+		[Column] public string MaTaiKhoan { get; set; }
+		[Column] public string MaSanPham { get; set; }
+		[Column] public int? SoLuong { get; set; }
+		[Column] public int? Gia { get; set; }
+	}
+    
 	[TableName("dbo.LoaiSanPham")]
 	[PrimaryKey("MaLoaiSanPham", AutoIncrement=false)]
 	[ExplicitColumns]
@@ -124,6 +219,33 @@ namespace ShopOnlineConnection
 		[Column] public string MaNhaSanXuat { get; set; }
 		[Column] public string TenNhaSanXuat { get; set; }
 		[Column] public string TinhTrang { get; set; }
+	}
+    
+	[TableName("dbo.Order")]
+	[PrimaryKey("ID")]
+	[ExplicitColumns]
+    public partial class Order : ShopOnlineConnectionDB.Record<Order>  
+    {
+		[Column] public long ID { get; set; }
+		[Column] public DateTime? NgayTao { get; set; }
+		[Column] public string NguoiDat { get; set; }
+		[Column] public string NguoiNhan { get; set; }
+		[Column] public string SDT { get; set; }
+		[Column] public string DiaChi { get; set; }
+		[Column] public long? TongTien { get; set; }
+		[Column] public string Email { get; set; }
+		[Column] public int? TrangThai { get; set; }
+	}
+    
+	[TableName("dbo.OrderDetail")]
+	[PrimaryKey("MaSanPham", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class OrderDetail : ShopOnlineConnectionDB.Record<OrderDetail>  
+    {
+		[Column] public string MaSanPham { get; set; }
+		[Column] public long OrderID { get; set; }
+		[Column] public int? SoLuong { get; set; }
+		[Column] public int? Gia { get; set; }
 	}
     
 	[TableName("dbo.SanPham")]

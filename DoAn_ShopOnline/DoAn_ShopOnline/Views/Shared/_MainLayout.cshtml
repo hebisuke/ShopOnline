@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "_MainLayout";
 }
@@ -37,6 +37,7 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
+    <script src="~/Areas/AssetAdmin/ckeditor/ckeditor.js"></script>
 </head>
 
 <body>
@@ -65,12 +66,12 @@
         </div>
     </nav>
     <!--Header-->
-    @*Kĩ thuật 2 : đổ dữ liệu theo kiểu html.patital sau đó chuyển vè MvcHtmlString*@
-    @{ 
-        var headerPartital = Html.Partial("_Header");
-        headerPartital = new MvcHtmlString(headerPartital.ToString());
-    }
-    @headerPartital
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.Partial("_Header", DoAn_ShopOnline.Models.BUS.GioHangBUS.DanhSach(User.Identity.GetUserId()));
+}
+       
+
     <!--Navigation-->
     <nav id="menu" class="navbar">
         <div class="container">

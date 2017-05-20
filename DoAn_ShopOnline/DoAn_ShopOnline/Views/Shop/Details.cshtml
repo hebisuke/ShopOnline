@@ -21,28 +21,53 @@
                     <div class="col-md-6">
                         <div class="image">
                             @Html.Partial("_AvartaDetails", DoAn_ShopOnline.Models.BUS.ShopOnlineBUS.LoadAvartaImg(Model.MaSanPham))
+                            <div class="buttons">
+                                <a class="btn cart" href="@Url.Action("index","GioHang")"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                                <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
+                                <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
+                            </div>
                             <div class="image-more">
-
-                                
                                 <a href="#" data-id="@Model.MaSanPham" class="btn_images"><img src="~/Asset/images/ThemHinh.png" style="background:white;" /> Xem chi tiết sản phẩm</a>
-                            
-                            
-                            
                             </div>
                         </div>
+                        
                     </div>
                     <div class="col-md-6">
                         <div class="caption">
                             <div class="name"><h3>@Model.TenSanPham</h3></div>
-                           
-                            
                             <div class="price"> @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", Model.Gia)</div>
                             @Html.Raw(HttpUtility.HtmlDecode(Model.CauHinh))
-                           
                             <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+                          
+                             @using (Html.BeginForm("Them", "GioHang",FormMethod.Post))
+                            {
+                              <input type="hidden" name="masanpham" value="@Model.MaSanPham" />
+                              <input type="hidden" name="gia" value="@Model.Gia" />
+                             <label>Số Lượng: </label> <input class="form-inline quantity" type="number" value="1" min="1" max="1000" name="soluong" />
+                            <input type="submit" class="btn btn-2 " value="Thêm vào giỏ" >
+                            }
+                            
                         </div>
                     </div>
-                    <div class="clear"></div>
+                    <div class="clear" style="height:10%;   "></div>
+                </div>
+                <div class="product-desc">
+                  @if (User.Identity.IsAuthenticated)
+                  {
+                    <form method="post" action="~/BinhLuan/Create">
+                        <input type="hidden" name="MaSanPham" value="@Model.MaSanPham" />
+                        <textarea style="width:100%;max-width:100%;max-height:300px;" maxlength="2048" placeholder="Nhập nội dung cần bình luận...." name="NoiDung"></textarea>
+                        <input type="submit" value="Bình Luận" style="float:right;" />
+                    </form>
+                  }
+                  else
+                  {
+                      <h2>Vui lòng đăng nhập để bình luận</h2>
+                  }
+
+
+                    <span><br /><br /><br /><br /></span>
+                   @Html.Partial("_BinhLuan",DoAn_ShopOnline.Models.BUS.BinhLuanBUS.LoadBinhLuan())
                 </div>
             </div>
             <div id="sidebar" class="col-md-4">
@@ -92,10 +117,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+            
     </div>
 </div>	
-
+    </div>
 <!-- Modal -->
 <div class="modal fade" id="imagesManange" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -120,3 +145,4 @@
 
     </div>
 </div>
+

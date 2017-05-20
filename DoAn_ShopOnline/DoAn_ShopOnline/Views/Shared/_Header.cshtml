@@ -1,4 +1,5 @@
-﻿<header class="container">
+﻿@model IEnumerable<ShopOnlineConnection.GioHang>
+<header class="container">
     <div class="row">
         <div class="col-md-4">
             <div id="logo"><img src="~/Asset/images/logo.png" /></div>
@@ -10,7 +11,7 @@
             </form>
         </div>
         <div class="col-md-4">
-            <div id="cart"><a class="btn btn-1" href="cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>CART : 0 ITEM</a></div>
+            <div id="cart"><a class="btn btn-1" href="@Url.Action("index","GioHang")"><span class="glyphicon glyphicon-shopping-cart"></span>CART : @Model.Count() ITEM</a></div>
         </div>
     </div>
 </header>
