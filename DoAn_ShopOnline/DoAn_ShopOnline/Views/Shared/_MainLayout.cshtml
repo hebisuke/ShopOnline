@@ -88,6 +88,19 @@
                     <li><a href="category.html">Software</a></li>
                 </ul>
             </div>
+
+            <div id="txtTimKiem">
+                @using (Html.BeginForm("KetQuaTimKiem", "TimKiem"))
+                {
+                    @Html.TextBox("TimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập từ khóa vào" })
+                    <div id="divHinhAnhTimKiem">
+                        <button type="submit"><img src="~/Asset/images/search.png" height="20" width="20" /></button>
+                    </div>
+                }
+            </div>
+
+
+
         </div>
     </nav>
     <!--//////////////////////////////////////////////////-->
