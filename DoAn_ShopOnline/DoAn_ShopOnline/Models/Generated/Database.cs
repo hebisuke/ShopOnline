@@ -197,8 +197,10 @@ namespace ShopOnlineConnection
 		[Column] public int IdGH { get; set; }
 		[Column] public string MaTaiKhoan { get; set; }
 		[Column] public string MaSanPham { get; set; }
+		[Column] public string TenSanPham { get; set; }
 		[Column] public int? SoLuong { get; set; }
 		[Column] public int? Gia { get; set; }
+		[Column] public int? TongTien { get; set; }
 	}
     
 	[TableName("dbo.LoaiSanPham")]
@@ -233,7 +235,6 @@ namespace ShopOnlineConnection
 		[Column] public string SDT { get; set; }
 		[Column] public string DiaChi { get; set; }
 		[Column] public long? TongTien { get; set; }
-		[Column] public string Email { get; set; }
 		[Column] public int? TrangThai { get; set; }
 	}
     
@@ -244,8 +245,10 @@ namespace ShopOnlineConnection
     {
 		[Column] public string MaSanPham { get; set; }
 		[Column] public long OrderID { get; set; }
+		[Column] public string TenSanPham { get; set; }
 		[Column] public int? SoLuong { get; set; }
 		[Column] public int? Gia { get; set; }
+		[Column] public int? TongTien { get; set; }
 	}
     
 	[TableName("dbo.SanPham")]

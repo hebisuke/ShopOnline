@@ -8,7 +8,7 @@ namespace DoAn_ShopOnline.Models.BUS
 {
     public class GioHangBUS
     {
-        public static  void Them( string masanpham, string  mataikhoan,int soluong , int gia)
+        public static  void Them( string masanpham, string  mataikhoan,int soluong , int gia, string tensanpham)
         {
             
             using (var db = new ShopOnlineConnectionDB())
@@ -18,7 +18,7 @@ namespace DoAn_ShopOnline.Models.BUS
                 {
                     // gọi hàm update so lượng
                     int a = (int)x.ElementAt(0).SoLuong+ soluong;
-                    CapNhat(masanpham, mataikhoan,a ,gia);
+                    CapNhat(masanpham, mataikhoan,a ,gia,tensanpham);
                 }
                 else
                 {
@@ -26,8 +26,10 @@ namespace DoAn_ShopOnline.Models.BUS
                     {
                         MaSanPham = masanpham,
                         MaTaiKhoan = mataikhoan,
-                        SoLuong = 1,
-                        Gia = gia
+                        SoLuong = soluong,
+                        Gia = gia,
+                        TenSanPham = tensanpham,
+                        TongTien = gia * soluong
                     };
                     db.Insert(giohang);
                 }
@@ -42,7 +44,7 @@ namespace DoAn_ShopOnline.Models.BUS
                 return db.Query<GioHang>("select * from GioHang where MaTaiKhoan = '"+ mataikhoan + "'");
             }
         }
-        public static void CapNhat(string masanpham , string mataikhoan , int soluong,int gia)
+        public static void CapNhat(string masanpham , string mataikhoan , int soluong,int gia, string tensanpham)
         {
             using (var db = new ShopOnlineConnectionDB())
             {
@@ -51,7 +53,9 @@ namespace DoAn_ShopOnline.Models.BUS
                     MaSanPham = masanpham,
                     MaTaiKhoan = mataikhoan,
                     SoLuong = soluong,
-                    Gia = gia
+                    Gia = gia,
+                    TenSanPham = tensanpham,
+                    TongTien = gia *  soluong
                 };
                 var tamp = db.Query<GioHang>("Select idGH from GioHang Where MaTaiKhoan = '" + mataikhoan + "' and MaSanPham = '" + masanpham + "'" ).FirstOrDefault();
                 db.Update(giohang,tamp.IdGH);
@@ -69,8 +73,13 @@ namespace DoAn_ShopOnline.Models.BUS
         {
             using (var db = new ShopOnlineConnectionDB())
             {
-
+                List<GioHang> a = DanhSach(mataikhoan).ToList();
+                if(a.Count()==0)
+                {
+                    return 0;
+                }
                 return db.Query<int>("select sum(Gia) from GioHang where MaTaiKhoan = '" + mataikhoan + "' ").FirstOrDefault();
+                
             }
         }
     }

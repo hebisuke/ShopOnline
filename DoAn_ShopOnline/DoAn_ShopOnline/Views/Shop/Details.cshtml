@@ -41,10 +41,19 @@
                           
                              @using (Html.BeginForm("Them", "GioHang",FormMethod.Post))
                             {
-                              <input type="hidden" name="masanpham" value="@Model.MaSanPham" />
+                              <input type="hidden" name="tensanpham" value="@Model.TenSanPham" />
+                               <input type="hidden" name="masanpham" value="@Model.MaSanPham" />
                               <input type="hidden" name="gia" value="@Model.Gia" />
                              <label>Số Lượng: </label> <input class="form-inline quantity" type="number" value="1" min="1" max="1000" name="soluong" />
-                            <input type="submit" class="btn btn-2 " value="Thêm vào giỏ" >
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <input type="submit" class="btn btn-2 " value="Thêm vào giỏ">
+                            }
+                            else {
+                                <span>Đăng nhập để thêm giỏ hàng</span>
+                            }
+
+
                             }
                             
                         </div>

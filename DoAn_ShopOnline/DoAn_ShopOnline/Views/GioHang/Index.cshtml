@@ -14,7 +14,6 @@
                 </ul>
             </div>
         </div>
-       @{ int a = 0; }
         @foreach (var item in Model)
         {
             // từ bên shop.details . Gửi ma san pham , ten san pham va gia san pham
@@ -30,8 +29,12 @@
                         <div class="caption">
                             @using (Html.BeginForm("CapNhat", "GioHang", FormMethod.Post))
                             {
-                                @Html.Partial("_GioHang", DoAn_ShopOnline.Models.BUS.ShopOnlineBUS.ChiTiet(item.MaSanPham.ToString()))
-                                <label>Số lượng : </label> <input class="form-inline quantity" min="1" max="1000" type="number" value="@item.SoLuong" name="soluong"><input type="submit" class="btn btn-2 " value="Update" />
+                                <input type="hidden" name="masanpham" value="@item.MaSanPham" />
+                                <input type="hidden" name="tensanpham" value="@item.TenSanPham" />
+                                <input type="hidden" name="gia" value="@item.Gia" />
+                                       @Html.Partial("_GioHang", DoAn_ShopOnline.Models.BUS.ShopOnlineBUS.ChiTiet(item.MaSanPham.ToString()))
+                                <label>Số lượng : </label> <input class="form-inline quantity" min="1" max="1000" type="number" value="@item.SoLuong" name="soluong"><input type="submit" class="btn btn-2 " value="Update" /> <br />
+                                <span>Tổng Tiền : @item.TongTien</span>
                                 <hr>
                             }
                             <a href="@Url.Action("Xoa","GioHang",new { masanpham= item.MaSanPham})" class="btn btn-default pull-right">REMOVE</a>
@@ -72,7 +75,7 @@
                             <td>@ViewBag.TongTien</td>
                         </tr>
                     </table>
-                    <center><a href="#" class="btn btn-1">Checkout</a></center>
+                    <center><a href="@Url.Action("index","ThanhToan")" class="btn btn-1">Checkout</a></center>
                 </div>
             </div>
         </div>

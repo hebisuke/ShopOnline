@@ -18,11 +18,11 @@ namespace DoAn_ShopOnline.Controllers
             return View(GioHangBUS.DanhSach(User.Identity.GetUserId()));
         }
         [HttpPost]
-        public ActionResult Them(string masanpham,int soluong, int gia)
+        public ActionResult Them(string masanpham,int soluong, int gia,string tensanpham)
         {
             try
             {
-                GioHangBUS.Them(masanpham, User.Identity.GetUserId(),soluong,gia);
+                GioHangBUS.Them(masanpham, User.Identity.GetUserId(),soluong,gia,tensanpham);
                 return RedirectToAction("index");
             }
             catch
@@ -32,11 +32,11 @@ namespace DoAn_ShopOnline.Controllers
 
         }
         [HttpPost]
-        public ActionResult CapNhat(string masanpham, int soluong,int gia)
+        public ActionResult CapNhat(string masanpham, int soluong,int gia, string tensanpham)
         {
             try
             {
-                GioHangBUS.CapNhat(masanpham, User.Identity.GetUserId(), soluong,gia);
+                GioHangBUS.CapNhat(masanpham, User.Identity.GetUserId(), soluong,gia,tensanpham);
                 return RedirectToAction("index");
             }
             catch
