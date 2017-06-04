@@ -3,8 +3,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-<form>
-    <!--<input type="Text" placeholder="Nhập" required /> -->
+<h1>Phiếu Đặt Hàng : </h1>
+<form style="width:100%; margin:auto;" method="post" action="~/ThanhToan/Them"> 
+    <input type="Text" style="width:50%; margin-left:25%;" maxlength="50" placeholder="Nhập tên người nhận" required name="nguoinhan"/> <br />
+    <input type="number" style="width:50%; margin-left:25%;" maxlength="12" placeholder="Nhập số điện thoại người nhận" required name="sdt" /> <br/>
+    <input type="Text" style="width:50%; margin-left:25%;" maxlength="50" placeholder="Nhập địa chỉ người nhận" required name="diachi" /> <br />
+    <span style="width:50%; margin-left:25%;" name="tongtien">Tổng tiền : @ViewBag.TongTien</span><br />
+    <input style="width:50%; margin-left:25%;" type="submit" value="Đặt hàng" />
 </form>
 <hr style="height:40px;" />
 @foreach (var item in Model)

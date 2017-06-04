@@ -170,3 +170,4 @@ C:\Users\RyoSama\Desktop\ShopOnline\DoAn_ShopOnline\DoAn_ShopOnline\bin\Microsof
 C:\Users\RyoSama\Desktop\ShopOnline\DoAn_ShopOnline\DoAn_ShopOnline\obj\Debug\DoAn_ShopOnline.csprojResolveAssemblyReference.cache
 C:\Users\RyoSama\Desktop\ShopOnline\DoAn_ShopOnline\DoAn_ShopOnline\obj\Debug\DoAn_ShopOnline.dll
 C:\Users\RyoSama\Desktop\ShopOnline\DoAn_ShopOnline\DoAn_ShopOnline\obj\Debug\DoAn_ShopOnline.pdb
+C:\Users\RyoSama\Desktop\ShopOnline\DoAn_ShopOnline\DoAn_ShopOnline\bin\CKFinder.dll

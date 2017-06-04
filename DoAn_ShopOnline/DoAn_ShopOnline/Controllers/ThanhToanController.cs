@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using ShopOnlineConnection;
-
 namespace DoAn_ShopOnline.Controllers
 {
     [Authorize]
@@ -20,7 +19,22 @@ namespace DoAn_ShopOnline.Controllers
             {
                 return RedirectToAction("../Shop/index");
             }
+            ViewBag.TongTien = GioHangBUS.TongTien(User.Identity.GetUserId());
             return View(ds);
+        }
+        [HttpPost]
+        public ActionResult Them(string nguoinhan,string sdt,string diachi)
+        {
+            try
+            {
+                ThanhToanBUS.ThemOrder(nguoinhan, sdt, diachi,User.Identity.GetUserId() );
+                return RedirectToAction("../Shop/index");
+            }
+            catch
+            {
+                return RedirectToAction("../GioHang/index");
+            }
+
         }
     }
 }

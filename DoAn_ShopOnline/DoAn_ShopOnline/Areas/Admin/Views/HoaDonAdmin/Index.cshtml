@@ -1,0 +1,83 @@
+﻿@model PagedList.IPagedList<ShopOnlineConnection.HoaDon>
+@using PagedList.Mvc;
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: auto;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #5d5e63;
+    }
+
+    th {
+        background-color: #2a9fd6;
+        color: white;
+    }
+</style>
+<h2>Quản Lý Hóa Đơn</h2>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Ngày Tạo</th>
+        <th>Người nhận</th>
+        <th>Sô điện thoại</th>
+        <th>Địa Chỉ</th>
+        <th>Tổng Tiền</th>
+        <th>Tình Trạng</th>
+        <th colspan="3">Chức năng</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.NgayTao</td>
+            <td>@item.NguoiNhan</td>
+            <td>@item.SDT</td>
+            <td>@item.DiaChi</td>
+            <td>@item.TongTien</td>
+            @*Trạng thái  0:chưa duyệt , 1 : đang giao , 2 : đã giao, 3 : đã hủy ()*@ 
+            @switch(item.TrangThai)
+                {
+                    case 0: <td>Chưa duyệt</td> 
+                    break;
+                case 1:<td>Đang giao</td>
+                    break;
+                case 2:<td>Đã giao</td>
+                    break;
+                case 3: <td>Đã hủy</td>
+                    break;
+            }
+            @Html.Partial("_ChiTietHoaDon", DoAn_ShopOnline.Models.BUS.ThanhToanBUS.ChiTietHoaDon(item.ID))
+            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Xem chi tiết</button></td>
+            <td colspan="2" >
+            <form action="@Url.Action("CapNhat","HoaDonAdmin")" method="get">
+                <input type="hidden" name="mahoadon" value="@item.ID" />
+                <select name="trangthai" class="btn btn-info">
+                    <option  value="0" selected hidden >Vui lòng chọn</option>
+                    <option value="0">Chưa duyệt</option>
+                    <option value="1">Đang giao</option>
+                    <option value="2">Đã giao</option>
+                    <option value="3">Đã hủy</option>
+                </select>
+                 <input type="submit" class="btn btn-info" value="Sửa"/>
+            </form>
+            </td>
+        </tr>
+    }
+
+</table>
+
+

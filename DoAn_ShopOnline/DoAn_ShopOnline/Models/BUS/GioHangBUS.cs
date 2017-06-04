@@ -78,7 +78,7 @@ namespace DoAn_ShopOnline.Models.BUS
                 {
                     return 0;
                 }
-                return db.Query<int>("select sum(Gia) from GioHang where MaTaiKhoan = '" + mataikhoan + "' ").FirstOrDefault();
+                return db.Query<int>("select sum(TongTien) from GioHang where MaTaiKhoan = '" + mataikhoan + "' ").FirstOrDefault();
                 
             }
         }

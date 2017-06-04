@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CKFinder">
-      <HintPath>..\..\..\shop\ShopOnline\DoAn_ShopOnline\DoAn_ShopOnline\Areas\AssetAdmin\ckfinder\bin\Release\CKFinder.dll</HintPath>
+      <HintPath>..\..\..\ckfinder_aspnet_2.5.1\ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -207,6 +207,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSanPhamAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaSanXuatAdminController.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Models\BUS\LoaiSanPhamBUS.cs" />
     <Compile Include="Models\BUS\NhaSanXuatBUS.cs" />
     <Compile Include="Models\BUS\ShopOnlineBUS.cs" />
+    <Compile Include="Models\BUS\ThanhToanBUS.cs" />
     <Compile Include="Models\BUS\TimKiemBUS.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
@@ -1410,6 +1412,8 @@
     <Content Include="Areas\AssetAdmin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\Shared\_AvartaImg.cshtml" />
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDonAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_ChiTietHoaDon.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

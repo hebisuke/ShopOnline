@@ -189,6 +189,19 @@ namespace ShopOnlineConnection
 		[Column] public DateTime? Ngay { get; set; }
 	}
     
+	[TableName("dbo.ChiTietHoaDon")]
+	[PrimaryKey("MaSanPham", AutoIncrement=false)]
+	[ExplicitColumns]
+    public partial class ChiTietHoaDon : ShopOnlineConnectionDB.Record<ChiTietHoaDon>  
+    {
+		[Column] public string MaSanPham { get; set; }
+		[Column] public long OrderID { get; set; }
+		[Column] public string TenSanPham { get; set; }
+		[Column] public int? SoLuong { get; set; }
+		[Column] public int? Gia { get; set; }
+		[Column] public int? TongTien { get; set; }
+	}
+    
 	[TableName("dbo.GioHang")]
 	[PrimaryKey("IdGH")]
 	[ExplicitColumns]
@@ -201,6 +214,21 @@ namespace ShopOnlineConnection
 		[Column] public int? SoLuong { get; set; }
 		[Column] public int? Gia { get; set; }
 		[Column] public int? TongTien { get; set; }
+	}
+    
+	[TableName("dbo.HoaDon")]
+	[PrimaryKey("ID")]
+	[ExplicitColumns]
+    public partial class HoaDon : ShopOnlineConnectionDB.Record<HoaDon>  
+    {
+		[Column] public long ID { get; set; }
+		[Column] public DateTime? NgayTao { get; set; }
+		[Column] public string NguoiDat { get; set; }
+		[Column] public string NguoiNhan { get; set; }
+		[Column] public string SDT { get; set; }
+		[Column] public string DiaChi { get; set; }
+		[Column] public long? TongTien { get; set; }
+		[Column] public int? TrangThai { get; set; }
 	}
     
 	[TableName("dbo.LoaiSanPham")]
@@ -221,34 +249,6 @@ namespace ShopOnlineConnection
 		[Column] public string MaNhaSanXuat { get; set; }
 		[Column] public string TenNhaSanXuat { get; set; }
 		[Column] public string TinhTrang { get; set; }
-	}
-    
-	[TableName("dbo.Order")]
-	[PrimaryKey("ID")]
-	[ExplicitColumns]
-    public partial class Order : ShopOnlineConnectionDB.Record<Order>  
-    {
-		[Column] public long ID { get; set; }
-		[Column] public DateTime? NgayTao { get; set; }
-		[Column] public string NguoiDat { get; set; }
-		[Column] public string NguoiNhan { get; set; }
-		[Column] public string SDT { get; set; }
-		[Column] public string DiaChi { get; set; }
-		[Column] public long? TongTien { get; set; }
-		[Column] public int? TrangThai { get; set; }
-	}
-    
-	[TableName("dbo.OrderDetail")]
-	[PrimaryKey("MaSanPham", AutoIncrement=false)]
-	[ExplicitColumns]
-    public partial class OrderDetail : ShopOnlineConnectionDB.Record<OrderDetail>  
-    {
-		[Column] public string MaSanPham { get; set; }
-		[Column] public long OrderID { get; set; }
-		[Column] public string TenSanPham { get; set; }
-		[Column] public int? SoLuong { get; set; }
-		[Column] public int? Gia { get; set; }
-		[Column] public int? TongTien { get; set; }
 	}
     
 	[TableName("dbo.SanPham")]
