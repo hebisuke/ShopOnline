@@ -40,6 +40,7 @@ namespace DoAn_ShopOnline.Models.BUS
                     odct.OrderID = id;
                     odct.MaSanPham = item.MaSanPham;
                     odct.TenSanPham = item.TenSanPham;
+                    odct.SoLuong = item.SoLuong;
                     odct.Gia = item.Gia;
                     odct.TongTien = item.TongTien;
                     i++;

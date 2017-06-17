@@ -1,0 +1,56 @@
+﻿@model  IEnumerable<ShopOnlineConnection.ThongTinCaNhan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 70%;
+        margin: auto;
+
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+
+    }
+
+    tr:nth-child(even) {
+        background-color: black;
+    }
+
+    th {
+        background-color: #2a9fd6;
+        color: white;
+    }
+</style>
+<h2>Thông Tin Tài Khoản</h2>
+<table border="0">
+    <tr>
+        <td style="color: black;">Mã Tài Khoản : </td>
+        <td style="color: black; width:100%; float:left; "><span type="text" name="MaTaiKhoan" >@Model.ElementAt(0).MaTaiKhoan</span></td>
+    </tr>
+    <tr>
+        <td style="color: white">Tên Tài Khoản: </td>
+        <td><input type="text" style="width:100%" name="TenTaiKhoan" value="@Model.ElementAt(0).TenTaiKhoan" readonly /> </td>
+    </tr>
+    <tr>
+        <td style="color: black">Ngày Sinh : </td>
+        <td><input type="date" min="1990-01-01" max="2020-01-01" style="width:100%" name="NgaySinh" value="@Model.ElementAt(0).NgaySinh" readonly /> </td>
+    </tr>
+    <tr>
+        <td style="color: white">Số Điện Thoại: </td>
+        <td><input type="number" maxlength="12" style="width:100%" name="SoDienThoai" value="@Model.ElementAt(0).SoDienThoai" readonly /> </td>
+    </tr>
+    <tr>
+        <td style="color: black">Địa Chỉ : </td>
+        <td><input type="text" style="width:100%" name="DiaChi" value="@Model.ElementAt(0).DiaChi" readonly /> </td>
+    </tr>
+    <tr>
+        <td style="color: white">Giới Tính: </td>
+        <td><input type="text" style="width:100%" name="GioiTinh" min="1" max="4" value="@Model.ElementAt(0).GioiTinh" readonly /> </td>
+    </tr>
+
+</table>

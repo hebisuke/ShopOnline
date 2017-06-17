@@ -220,6 +220,7 @@
     <Compile Include="Controllers\NhaSanXuatController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\ThanhToanController.cs" />
+    <Compile Include="Controllers\ThongTinCaNhanController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,6 +233,7 @@
     <Compile Include="Models\BUS\NhaSanXuatBUS.cs" />
     <Compile Include="Models\BUS\ShopOnlineBUS.cs" />
     <Compile Include="Models\BUS\ThanhToanBUS.cs" />
+    <Compile Include="Models\BUS\ThongTinCaNhanBUS.cs" />
     <Compile Include="Models\BUS\TimKiemBUS.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
@@ -1236,6 +1238,7 @@
     <Content Include="Areas\AssetAdmin\font-awesome\css\font-awesome.min.css" />
     <Content Include="Areas\AssetAdmin\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Areas\AssetAdmin\js\jquery-1.10.2.min.js" />
+    <Content Include="Areas\AssetAdmin\js\product\HoaDon.js" />
     <Content Include="Areas\AssetAdmin\js\product\previewFile.js" />
     <Content Include="Areas\AssetAdmin\js\product\productController.js" />
     <Content Include="Asset\css\bootstrap.min.css" />
@@ -1477,6 +1480,9 @@
     <Content Include="Views\Shared\_GioHang.cshtml" />
     <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
     <Content Include="Views\ThanhToan\Index.cshtml" />
+    <Content Include="Views\Shared\_ThongTinCaNhan.cshtml" />
+    <Content Include="Views\ThongTinCaNhan\Index.cshtml" />
+    <Content Include="Views\ThongTinCaNhan\Them.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -60,8 +60,15 @@
                 case 3: <td>Đã hủy</td>
                     break;
             }
-            @Html.Partial("_ChiTietHoaDon", DoAn_ShopOnline.Models.BUS.ThanhToanBUS.ChiTietHoaDon(item.ID))
-            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Xem chi tiết</button></td>
+            @*@Html.Partial("_ChiTietHoaDon", DoAn_ShopOnline.Models.BUS.ThanhToanBUS.ChiTietHoaDon(item.ID))*@
+           <td><a href="#" data-id="@item.ID" class="btn-images"></a></td>
+
+            <td>
+                <input type="hidden" value="@item.ID" id="mahoadon"/>
+                <a href="#" data-id="@item.ID" class="btn-chitiet"><span class="glyphicon glyphicon-folder-open"> CTDH</span></a>
+
+            </td>
+
             <td colspan="2" >
             <form action="@Url.Action("CapNhat","HoaDonAdmin")" method="get">
                 <input type="hidden" name="mahoadon" value="@item.ID" />
@@ -80,4 +87,32 @@
 
 </table>
 
+<div class="modal fade" id="ChiTietModal" role="dialog" >
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content" style="width:100%">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Chi Tiết Hóa Đơn</h4>
+            </div>
+            <div class="modal-body">
+                <div style="float:left" class="col-md-12">
+                    <span class=col-md-2>Mã Hóa Đơn</span>
+                    <span class=col-md-2>Mã Sản Phẩm </span>
+                    <span class=col-md-2>Tên Sản Phẩm</span>
+                    <span class=col-md-2>Số Lượng</span>
+                    <span class=col-md-2>Giá</span>
+                    <span class=col-md-2>Tổng Tiền</span>
+                </div>
+                <div id="ListChiTiet">
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

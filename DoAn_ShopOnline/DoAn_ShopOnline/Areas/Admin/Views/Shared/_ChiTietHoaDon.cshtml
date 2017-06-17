@@ -10,9 +10,13 @@
                 <h4 class="modal-title">Modal Header</h4>
             </div>
             <div class="modal-body">
-                <p>@Model.ElementAt(0).OrderID</p>
-                <p>Some text in the modal</p>
-            </div>
+                @foreach (var item in Model)
+                {
+                    <p>@item.MaSanPham</p>
+                    <p>@item.TenSanPham</p>
+                }
+
+               </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>

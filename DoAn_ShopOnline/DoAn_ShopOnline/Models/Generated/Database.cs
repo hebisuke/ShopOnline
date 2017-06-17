@@ -280,4 +280,18 @@ namespace ShopOnlineConnection
 		[Column] public int? version { get; set; }
 		[Column] public byte[] definition { get; set; }
 	}
+    
+	[TableName("dbo.ThongTinCaNhan")]
+	[PrimaryKey("id")]
+	[ExplicitColumns]
+    public partial class ThongTinCaNhan : ShopOnlineConnectionDB.Record<ThongTinCaNhan>  
+    {
+		[Column] public int id { get; set; }
+		[Column] public string MaTaiKhoan { get; set; }
+		[Column] public string TenTaiKhoan { get; set; }
+		[Column] public int? SoDienThoai { get; set; }
+		[Column] public string DiaChi { get; set; }
+		[Column] public string GioiTinh { get; set; }
+		[Column] public string NgaySinh { get; set; }
+	}
 }

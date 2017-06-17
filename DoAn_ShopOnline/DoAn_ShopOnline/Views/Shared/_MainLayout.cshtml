@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-xs-6">
                     <ul class="top-link">
-                        @Html.Partial("_LoginPartial")
+                        @Html.Partial("_LoginPartial",DoAn_ShopOnline.Models.BUS.ThongTinCaNhanBUS.LoadThongTin(User.Identity.GetUserId()))
                     </ul>
                 </div>
             </div>

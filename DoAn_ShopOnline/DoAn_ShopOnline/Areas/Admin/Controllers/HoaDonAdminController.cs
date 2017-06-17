@@ -29,5 +29,16 @@ namespace DoAn_ShopOnline.Areas.Admin.Controllers
            }
             
         }
+
+        public JsonResult ChiTiet(long id)
+        {
+            var chitiethoadon = ThanhToanBUS.ChiTietHoaDon(id);
+
+            return Json(new
+            {
+                data = chitiethoadon
+            }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

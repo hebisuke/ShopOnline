@@ -1,0 +1,9 @@
+﻿@model  IEnumerable<ShopOnlineConnection.ThongTinCaNhan>
+@if(Model.Count() ==0)
+{
+    <a href="@Url.Action("Them","ThongTinCaNhan")">[Thêm mới thông tin]</a>
+}
+else
+{
+    <a href="@Url.Action("Index","ThongTinCaNhan")">[Đến Trang Cá Nhân]</a>
+}
