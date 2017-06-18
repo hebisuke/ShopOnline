@@ -51,14 +51,18 @@
                         <option value="France">France</option>
                         <option value="Germany">Germany</option>
                     </select>
-                    <select class="currency">
-                        <option value="USD" selected>USD</option>
+                    <span class="currency"><a href="../Admin/MainAdmin">Đến trang Admin</a></span>
+                    @*<select class="currency">
+                        <option value="USD" selected></option>
                         <option value="EUR">EUR</option>
                         <option value="DDD">DDD</option>
-                    </select>
+                    </select>*@
+                    @*<ul class="currency">den trang admin</ul>*@
                 </div>
                 <div class="col-xs-6">
+                    
                     <ul class="top-link">
+                        
                         @Html.Partial("_LoginPartial",DoAn_ShopOnline.Models.BUS.ThongTinCaNhanBUS.LoadThongTin(User.Identity.GetUserId()))
                     </ul>
                 </div>

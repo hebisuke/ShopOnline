@@ -15,10 +15,13 @@ namespace DoAn_ShopOnline.Controllers
     public class TimKiemController : Controller
     {
         // GET: TimKiem
-        public ActionResult KetQuaTimKiem(string timkiem, int page = 1, int pagesize = 3)
+        public ActionResult KetQuaTimKiem(string timkiem , string MaNhaSanXuat, string MaLoaiSanPham, string GiaBatDau, string GiaKetThuc, int page = 1, int pagesize = 3)
         {
-            var db = TimKiemBUS.TimKiem(timkiem).ToPagedList(page, pagesize);
+            ViewBag.MaNhaSanXuat = new SelectList(NhaSanXuatBUS.DanhSach(), "MaNhaSanXuat", "TenNhaSanXuat");
+            ViewBag.MaLoaiSanPham = new SelectList(LoaiSanPhamBUS.DanhSach(), "MaLoaiSanPham", "TenLoaiSanPham");
+            var db = TimKiemBUS.TimKiem(timkiem,MaNhaSanXuat, MaLoaiSanPham,GiaBatDau,GiaKetThuc).ToPagedList(page, pagesize);
             return View(db);
         }
+
     }
 }

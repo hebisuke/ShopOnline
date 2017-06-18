@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<ShopOnlineConnection.ThongTinCaNhan>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: auto;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #5d5e63;
+    }
+
+    th {
+        background-color: #2a9fd6;
+        color: white;
+    }
+</style>
+<h2>Quản Lý Tài Khoản</h2>
+<h6>Các tài khoản không cập nhân thông tin cá nhân sẽ không hiển thị lên</h6>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+<table>
+    <tr>
+        <th>Tên Tài Khoản</th>
+        <th>Ngày Sinh</th>
+        <th>Số Điện Thoai</th>
+        <th>Địa Chỉ</th>
+        <th>Giới Tính</th>
+        <th colspan="3">Hành Động</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.TenTaiKhoan</td>
+            <td>@item.NgaySinh</td>
+            <td>@item.SoDienThoai</td>
+            <td>@item.DiaChi</td>
+            <td>@item.GioiTinh</td>
+            <td><a href="@Url.Action("Khoa","TaiKhoanAdmin", new { id = @item.MaTaiKhoan })">Khóa</a></td>
+            <td><a href="@Url.Action("CapQuyen","TaiKhoanAdmin", new { id = @item.MaTaiKhoan })">Cấp Quyền</a></td>
+            <td><a href="@Url.Action("Sua","TaiKhoanAdmin", new { id = @item.MaTaiKhoan })">Sửa</a></td>
+        </tr>
+    }
+
+</table>
+
+
+
+

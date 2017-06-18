@@ -28,7 +28,15 @@ namespace DoAn_ShopOnline.Models.BUS
         public static IEnumerable<SanPham> TopHot()
         {
             var db = new ShopOnlineConnectionDB();
-            return db.Query<SanPham>("select Top 4 * from SanPham Where LuotView > '1000' AND TinhTrang = '0         '");
+            return db.Query<SanPham>("select Top 4 * from SanPham Where LuotView > '1000' AND TinhTrang = '0         ' ORDER BY LuotView desc");
+        }
+
+        public static void CapNhatLuotView(string masp)
+        {
+            var db = new ShopOnlineConnectionDB();
+           var a = ChiTiet(masp);
+            a.LuotView = a.LuotView + 1;
+            db.Update(a, masp);
         }
         //----------------------------------------------admin----------
         public static IEnumerable<SanPham> DanhSachSP()

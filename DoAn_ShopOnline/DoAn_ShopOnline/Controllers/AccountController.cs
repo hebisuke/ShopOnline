@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DoAn_ShopOnline.Models;
+using DoAn_ShopOnline.Models.BUS;
 
 namespace DoAn_ShopOnline.Controllers
 {

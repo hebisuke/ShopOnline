@@ -35,6 +35,7 @@
                     <div class="col-md-6">
                         <div class="caption">
                             <div class="name"><h3>@Model.TenSanPham</h3></div>
+                            <div ><h5>Lượt view : @Model.LuotView</h5></div>
                             <div class="price"> @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", Model.Gia)</div>
                             @Html.Raw(HttpUtility.HtmlDecode(Model.CauHinh))
                             <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>

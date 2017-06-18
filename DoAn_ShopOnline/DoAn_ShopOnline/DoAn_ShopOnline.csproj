@@ -212,6 +212,7 @@
     <Compile Include="Areas\Admin\Controllers\MainAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaSanXuatAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TaiKhoanAdminController.cs" />
     <Compile Include="Content\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -1417,6 +1418,10 @@
     <Content Include="Areas\Admin\Views\NhaSanXuatAdmin\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDonAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_ChiTietHoaDon.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanAdmin\Sua.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanAdmin\Khoa.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoanAdmin\CapQuyen.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -14,6 +14,15 @@
                 </ul>
             </div>
         </div>
+        @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Get))
+        {
+            @Html.DropDownList("MaLoaiSanPham", null, new { @style = "float:left; width: 150px; background:while;height:30px;" })
+            @Html.DropDownList("MaNhaSanXuat", null, new { @style = "float:left; width: 150px; background:while;height:30px;" })
+            <input type="text" placeholder="Giá Bắt Đầu" name="GiaBatDau" maxlength="7" required/>
+            <input type="text" placeholder="Gia Kết Thúc" name="GiaKetThuc"  max="8"required/>
+            <input type="text" placeholder="Gõ Tên Sản Phẩm" name="timkiem"  />
+            <input type="submit" placeholder="Tìm Kiếm Nâng Cao" />
+        }
         <div class="row">
             <div id="main-content" class="col-md-8">
                 <div class="row">

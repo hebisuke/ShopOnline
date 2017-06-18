@@ -21,6 +21,7 @@ namespace DoAn_ShopOnline.Controllers
         // GET: Shop/Details/5
         public ActionResult Details(String id,int page =1, int pagesize =3)
         {
+            ShopOnlineBUS.CapNhatLuotView(id);
             var db = ShopOnlineBUS.ChiTiet(id);
             ViewBag.page = page;
             ViewBag.pagesize = pagesize;

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ShopOnlineConnection.ThongTinCaNhan>
+@{
+    ViewBag.Title = "Sua";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayoutAdmin.cshtml";
+}
+
+@using Microsoft.AspNet.Identity;
+<style>
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color:black;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #2a9fd6;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+</style>
+<h2>Thêm Thông Tin Cá Nhân</h2>
+@using (Html.BeginForm("Sua", "TaiKhoanAdmin", FormMethod.Post, new { @style = "width : 70%; margin: auto;" }))
+{
+    <table border="0" style="width:70%">
+        <tr>
+            <th>Mã Tài Khoản : </th>
+            <td ><input style="width:100%" type="text" name="MaTaiKhoan" value="@Model.ElementAt(0).MaTaiKhoan" readonly /></td>
+        </tr>
+        <tr>
+            <th >Tên Tài Khoản: </th>
+            <td><input type="text" name="TenTaiKhoan" value="@Model.ElementAt(0).TenTaiKhoan" required /> </td>
+        </tr>
+        <tr>
+            <th>Ngày Sinh : </th>
+            <td><input style="color:black;" type="date" min="1990-01-01" max="2020-01-01"  name="NgaySinh" value="@Model.ElementAt(0).NgaySinh" required /> </td>
+        </tr>
+        <tr>
+            <th >Số Điện Thoại: </th>
+            <td><input type="number" style="color:black;"  maxlength="12" name="SoDienThoai" value="@Model.ElementAt(0).SoDienThoai" required /> </td>
+        </tr>
+        <tr>
+            <th >Địa Chỉ : </th>
+            <td><input type="text" name="DiaChi" value="@Model.ElementAt(0).DiaChi" required /> </td>
+        </tr>
+        <tr>
+            <th >Giới Tính: </th>
+            <td><input type="text"  name="GioiTinh" min="1" max="4" value="@Model.ElementAt(0).GioiTinh" required /> </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Lưu Lại" /></td>
+        </tr>
+
+    </table>
+}
+
